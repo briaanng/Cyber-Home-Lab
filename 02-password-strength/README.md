@@ -36,4 +36,6 @@ john --show clean_hashes.txt
 ## 📸 Screenshots
 
 ### ✅ Wordlist Created in Nano
-[![Wordlist Edit](screenshots/wordlist_edit.png)](screenshots/wordlist_edit.png)
+Click to view the full image:
+
+[![Wordlist Screenshot](screenshots/wordlist_edit.png)](screenshots/wordlist_edit.png)
