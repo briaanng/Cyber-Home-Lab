@@ -22,3 +22,12 @@ echo "12345678" >> passwords.txt
 echo "MySecurePassword2024!" >> passwords.txt
 
 while read pass; do echo -n "$pass" | sha256sum; done < passwords.txt > hashes.txt
+
+---
+
+## 📸 Screenshots
+
+### ✅ Wordlist Created in Nano
+This shows the wordlist used to attempt cracking the SHA-256 hashes.
+
+![Wordlist Edit](screenshots/wordlist_edit.png)
