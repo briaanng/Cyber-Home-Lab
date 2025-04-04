@@ -32,3 +32,8 @@ john --format=raw-sha256 clean_hashes.txt --wordlist=wordlist.txt
 
 # Show any cracked passwords
 john --show clean_hashes.txt
+
+## 📸 Screenshots
+
+### ✅ Wordlist Created in Nano
+[![Wordlist Edit](screenshots/wordlist_edit.png)](screenshots/wordlist_edit.png)
