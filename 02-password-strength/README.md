@@ -6,7 +6,7 @@ Simulate how attackers test password strength by cracking SHA-256 password hashe
 ---
 
 ## 🛠️ Tools Used
-- Kali Linux (on MacBook via UTM)
+- Kali Linux (running on MacBook via UTM)
 - John the Ripper
 - Terminal
 
@@ -14,20 +14,21 @@ Simulate how attackers test password strength by cracking SHA-256 password hashe
 
 ## ⚙️ Steps
 
-1. **Created passwords:**
+### 1. Created Passwords
 ```bash
 echo "hello123" > passwords.txt
 echo "P@ssw0rd" >> passwords.txt
 echo "12345678" >> passwords.txt
 echo "MySecurePassword2024!" >> passwords.txt
 
+# Convert passwords to SHA-256 hashes
 while read pass; do echo -n "$pass" | sha256sum; done < passwords.txt > hashes.txt
 
----
+# Clean the hashes (remove extra formatting)
+cut -d ' ' -f1 hashes.txt > clean_hashes.txt
 
-## 📸 Screenshots
+# Run John the Ripper with custom wordlist
+john --format=raw-sha256 clean_hashes.txt --wordlist=wordlist.txt
 
-### ✅ Wordlist Created in Nano
-This shows the wordlist used to attempt cracking the SHA-256 hashes.
-
-![Wordlist Edit](screenshots/wordlist_edit.png)
+# Show any cracked passwords
+john --show clean_hashes.txt
