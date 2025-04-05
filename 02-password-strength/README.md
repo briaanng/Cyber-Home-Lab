@@ -33,24 +33,18 @@ john --format=raw-sha256 clean_hashes.txt --wordlist=wordlist.txt
 # Show any cracked passwords
 john --show clean_hashes.txt
 
----
-🔹 Step 2: Hashing passwords
-while read pass; do echo -n "$pass" | sha256sum; done < passwords.txt > hashes.tx
+### 🔹 Step 2: Hashed the passwords using SHA-256
+Used a terminal loop to convert each password into a SHA-256 hash and saved it into a file:
+```bash
+while read pass; do echo -n "$pass" | sha256sum; done < passwords.txt > hashes.txt
 
-🔹 Step 3: Cleaning the hashes
+🔹 Step 3: Cleaned the hashes for John the Ripper
 cut -d ' ' -f1 hashes.txt > clean_hashes.txt
 
-🔹 Step 4: Creating a custom wordlist
+🔹 Step 4: Created a custom wordlist
 nano wordlist.txt
 
-🔹 Step 5: Cracking the hashes
+🔹 Step 5: Cracked the password hashes using John the Ripper
 john --format=raw-sha256 clean_hashes.txt --wordlist=wordlist.txt
 
 ---
-
-## 📸 Screenshots
-
-### ✅ Wordlist Created in Nano
-Click to view the full image:
-
-[![Wordlist Screenshot](screenshots/wordlist_edit.png)](screenshots/wordlist_edit.png)
