@@ -33,6 +33,21 @@ john --format=raw-sha256 clean_hashes.txt --wordlist=wordlist.txt
 # Show any cracked passwords
 john --show clean_hashes.txt
 
+---
+🔹 Step 2: Hashing passwords
+while read pass; do echo -n "$pass" | sha256sum; done < passwords.txt > hashes.tx
+
+🔹 Step 3: Cleaning the hashes
+cut -d ' ' -f1 hashes.txt > clean_hashes.txt
+
+🔹 Step 4: Creating a custom wordlist
+nano wordlist.txt
+
+🔹 Step 5: Cracking the hashes
+john --format=raw-sha256 clean_hashes.txt --wordlist=wordlist.txt
+
+---
+
 ## 📸 Screenshots
 
 ### ✅ Wordlist Created in Nano
